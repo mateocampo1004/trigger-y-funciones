@@ -22,6 +22,10 @@ BEFORE INSERT OR UPDATE ON client
 FOR EACH ROW
 EXECUTE PROCEDURE validate_cedula();
 ```
+
+![ ](<Captura de pantalla 2024-07-15 135821.png>)
+
+
 -- Disminuir el stock de la tabla product cuando se inserte un nuevo registro en la tabla item
 
 ```sql
@@ -42,6 +46,10 @@ AFTER INSERT ON item
 FOR EACH ROW
 EXECUTE PROCEDURE decrease_stock();
 ```sql
+
+
+![alt text](image.png)
+
 -- Validar que el campo create_at sea del año actual en la tabla invoice
 ```sql
 -- Función para validar el año del campo create_at
@@ -61,7 +69,7 @@ BEFORE INSERT OR UPDATE ON invoice
 FOR EACH ROW
 EXECUTE PROCEDURE validate_year();
 ```sql
-
+![alt text](image-1.png)
 -- Validar que el correo tenga un @ en la tabla client
 ```sql
 -- Función para validar el correo electrónico
@@ -78,7 +86,9 @@ $$ LANGUAGE plpgsql;
 -- Trigger para aplicar la validación antes de insertar o actualizar en la tabla client
 ```sql
 CREATE TRIGGER validate_email_trigger
-BEFORE INSERT OR UPDATE ON client
+BEFORE INSERT OR UPDATE ON cliente
 FOR EACH ROW
 EXECUTE PROCEDURE validate_email();
 ```sql
+
+![alt text](image-2.png)
