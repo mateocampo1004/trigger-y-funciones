@@ -38,14 +38,14 @@ BEGIN
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
-```sql
+```
 -- Trigger para actualizar el stock después de insertar un nuevo registro en la tabla item
 ```sql
 CREATE TRIGGER decrease_stock_trigger
 AFTER INSERT ON item
 FOR EACH ROW
 EXECUTE PROCEDURE decrease_stock();
-```sql
+```
 
 
 ![alt text](image.png)
@@ -61,14 +61,14 @@ BEGIN
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
-```sql
+```
 -- Trigger para aplicar la validación antes de insertar o actualizar en la tabla invoice
 ```sql
 CREATE TRIGGER validate_year_trigger
 BEFORE INSERT OR UPDATE ON invoice
 FOR EACH ROW
 EXECUTE PROCEDURE validate_year();
-```sql
+```
 ![alt text](image-1.png)
 -- Validar que el correo tenga un @ en la tabla client
 ```sql
@@ -81,7 +81,7 @@ BEGIN
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
-```sql
+```
 
 -- Trigger para aplicar la validación antes de insertar o actualizar en la tabla client
 ```sql
@@ -89,6 +89,6 @@ CREATE TRIGGER validate_email_trigger
 BEFORE INSERT OR UPDATE ON cliente
 FOR EACH ROW
 EXECUTE PROCEDURE validate_email();
-```sql
+```
 
 ![alt text](image-2.png)
